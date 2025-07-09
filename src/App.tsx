@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import './App.css';
+import TextStream from './components/TextStream';
 
 function App() {
     return (
-        <>
-            <h1 className="text-2xl">App</h1>
-        </>
+        <div className="flex justify-center">
+            <TextStream targetText="siva" userInput="siva" />
+        </div>
     );
 }
 
