@@ -21,12 +21,17 @@ const useTypingStats = (targetText: string, userInput: string) => {
     const elapsedTime = startTime.current !== null ? Date.now() - startTime.current : 0;
     const minutes = elapsedTime / 60000;
     const wpm = minutes > 0 ? correctChars / 5 / minutes : 0;
+    const resetStats = () => {
+        startTime.current = null;
+    };
 
     return {
         wpm,
         accuracy,
         errors: totalTyped - correctChars,
         isFinished: userInput === targetText,
+        elapsedTime,
+        resetStats,
     };
 };
 
