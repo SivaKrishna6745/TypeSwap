@@ -31,7 +31,7 @@ function App() {
 
     return (
         <div className="mt-5 flex flex-col gap-8 justify-center items-center">
-            <h1 className="text-5xl">Type Swap</h1>
+            <h1 className="text-5xl text-white">Type Swap</h1>
             <ModeSwitcher selectedMode={'quotes'} onModeChange={handleModeChange} />
             <TextStream targetText={targetText} userInput={userInput} />
             <TypingInput value={userInput} onChange={setUserInput} />

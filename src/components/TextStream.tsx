@@ -18,10 +18,10 @@ const TextStream = ({ targetText, userInput }: TextStreamProps) => {
     });
 
     return (
-        <div className="flex">
+        <div className="w-280 bg-slate-400 p-4 rounded-lg flex flex-wrap justify-center">
             {targetTextArray.map((letter, idx) => {
                 return (
-                    <span key={idx} className="mx-1 break-words">
+                    <span key={idx} className="mx-0.5 break-words">
                         {letter}
                     </span>
                 );
