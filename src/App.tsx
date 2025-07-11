@@ -33,7 +33,7 @@ function App() {
         <div className="mt-5 flex flex-col gap-8 justify-center items-center">
             <h1 className="text-5xl text-white">Type Swap</h1>
             <hr className="w-full border-white" />
-            <ModeSwitcher selectedMode={'quotes'} onModeChange={handleModeChange} />
+            <ModeSwitcher selectedMode={mode} onModeChange={handleModeChange} />
             <TextStream targetText={targetText} userInput={userInput} />
             <TypingInput value={userInput} onChange={setUserInput} mode={mode} targetText={targetText} />
             <MetricsPanel wpm={wpm} accuracy={accuracy} errors={errors} elapsedTime={elapsedTime} />

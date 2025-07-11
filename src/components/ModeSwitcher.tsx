@@ -11,26 +11,38 @@ const buttonClassNames =
 const ModeSwitcher = ({ selectedMode, onModeChange }: ModeSwitcherProps) => {
     return (
         <div className="flex flex-col gap-4">
-            <h2 className="text-2xl text-white">Select a Mode</h2>
-            <div className="flex justify-center items-center gap-8">
-                <button
-                    className={`bg-red-400 hover:bg-red-600/80 ${buttonClassNames}`}
-                    onClick={() => onModeChange('quotes')}
-                >
+            <h2 className="text-2xl text-white">Select a Mode to start typing</h2>
+            <div className="flex gap-4">
+                <label className="text-xl text-white flex gap-2">
+                    <input
+                        type="radio"
+                        value={'quotes'}
+                        name="mode"
+                        checked={selectedMode === 'quotes'}
+                        onChange={() => onModeChange('quotes')}
+                    />
                     Quotes
-                </button>
-                <button
-                    className={`bg-green-400 hover:bg-green-600/80 ${buttonClassNames}`}
-                    onClick={() => onModeChange('paragraphs')}
-                >
+                </label>
+                <label className="text-xl text-white flex gap-2">
+                    <input
+                        type="radio"
+                        value={'paragraphs'}
+                        name="mode"
+                        checked={selectedMode === 'paragraphs'}
+                        onChange={() => onModeChange('paragraphs')}
+                    />
                     Paragraphs
-                </button>
-                <button
-                    className={`bg-blue-400 hover:bg-blue-600/80 ${buttonClassNames}`}
-                    onClick={() => onModeChange('codes')}
-                >
+                </label>
+                <label className="text-xl text-white flex gap-2">
+                    <input
+                        type="radio"
+                        value={'codes'}
+                        name="mode"
+                        checked={selectedMode === 'codes'}
+                        onChange={() => onModeChange('codes')}
+                    />
                     Codes
-                </button>
+                </label>
             </div>
         </div>
     );
