@@ -11,6 +11,7 @@ const buttonClassNames =
 const ModeSwitcher = ({ selectedMode, onModeChange }: ModeSwitcherProps) => {
     return (
         <div className="flex flex-col gap-4">
+            <h2 className="text-2xl text-white">Select a Mode</h2>
             <div className="flex justify-center items-center gap-8">
                 <button
                     className={`bg-red-400 hover:bg-red-600/80 ${buttonClassNames}`}
