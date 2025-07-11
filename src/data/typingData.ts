@@ -1,14 +1,40 @@
-const typingData = [
-    'The rhythm of typing is like rain on glass: steady, soothing, and relentless.',
-    "Curiosity didn't kill the cat—boredom did. So type like you're chasing answers.",
-    'In a world full of shortcuts, mastery still demands mileage.',
-    "React is reactive, but creativity is proactive. Let's build with both.",
-    'Typing code is like solving puzzles with your fingertips.',
-    "Foxes don't type, but they sprint. Be the fox, finish the sentence.",
-    "Every keystroke tells a story. What's yours today?",
-    'A bug in the code is worth two in the mind—hunt it down.',
-    'The quick brown fox jumped over more than just dogs; it leaped over doubt.',
-    "ZenVibes isn't just a channel—it's a keyboard-powered frequency.",
-];
+const typingData = {
+    quotes: [
+        'The rhythm of typing is like rain on glass: steady, soothing, and relentless.',
+        "Curiosity didn't kill the cat—boredom did. So type like you're chasing answers.",
+        'In a world full of shortcuts, mastery still demands mileage.',
+        "React is reactive, but creativity is proactive. Let's build with both.",
+        'Typing code is like solving puzzles with your fingertips.',
+        "Foxes don't type, but they sprint. Be the fox, finish the sentence.",
+        "Every keystroke tells a story. What's yours today?",
+        'A bug in the code is worth two in the mind—hunt it down.',
+        'The quick brown fox jumped over more than just dogs; it leaped over doubt.',
+        "ZenVibes isn't just a channel—it's a keyboard-powered frequency.",
+    ],
+    paragraphs: [
+        'The forest was silent except for the soft rustle of leaves, which whispered secrets older than time.',
+        'Typing is a dance of precision and intuition, a dialogue between speed and accuracy that rewards mastery.',
+        'As the storm rolled in, the developer stared at the screen, determined to fix the bug before the power flickered.',
+        'Paragraphs teach patience. Unlike quotes, they require endurance, rhythm, and the will to reach the period.',
+        'In a digital world where every click matters, the quiet elegance of a well-structured app speaks volumes.',
+        'She sat by the window, fingers moving not to type words but to shape feelings across a glowing interface.',
+        'Every software update is a silent promise: that things are better, faster, and more reliable than yesterday.',
+        'The mind wanders, but the fingers remain faithful to the task — a line typed perfectly in chaotic thought.',
+        "Progress isn't loud; it's a quiet refactor, a subtle animation, a name variable finally renamed correctly.",
+        'When memory leaks haunt the codebase, only resolve and refactor can bring peace to the machine.',
+    ],
+    codes: [
+        "const greet = () => console.log('Hello, world!');",
+        'for (let i = 0; i < 10; i++) { total += i; }',
+        'useEffect(() => fetchData(), []);',
+        'if (userInput === targetText) return true;',
+        'const sum = arr.reduce((a, b) => a + b, 0);',
+        "function reverse(str) { return str.split('').reverse().join(''); }",
+        "const mode = selectedMode || 'default';",
+        "document.querySelector('#submit').addEventListener('click', validate);",
+        "let theme = darkMode ? 'dark' : 'light';",
+        'const debounce = (fn, delay) => { /* logic */ }',
+    ],
+};
 
 export default typingData;
