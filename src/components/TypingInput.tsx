@@ -7,6 +7,7 @@ type TypingInputProps = {
     onChange: (value: string) => void;
     mode: Mode;
     targetText: string;
+    strict: boolean;
 };
 
 const caretColorMap: Record<Mode, string> = {
@@ -21,7 +22,7 @@ const fontMap: Record<Mode, string> = {
     codes: 'font-mono',
 };
 
-const TypingInput = ({ value, onChange, mode, targetText }: TypingInputProps) => {
+const TypingInput = ({ value, onChange, mode, targetText, strict }: TypingInputProps) => {
     const inputRef = useRef<HTMLTextAreaElement>(null);
     useEffect(() => {
         if (inputRef.current) inputRef.current?.focus();
@@ -37,14 +38,20 @@ const TypingInput = ({ value, onChange, mode, targetText }: TypingInputProps) =>
             isExtra: i >= targetChars.length,
         });
     }
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+        if (e?.key === 'Backspace' && strict) {
+            e.preventDefault();
+        }
+    };
 
     return (
         <div className="max-w-screen flex flex-col items-center">
             <textarea
                 rows={3}
-                className={`w-4xl h-full p-3 rounded-md resize-none border bg-neutral-100 focus:outline-none focus:ring-blue-400 cursor-text ${caretColorMap[mode]} ${fontMap[mode]}`}
+                className={`bg-transparent w-4xl h-full p-3 rounded-md resize-none border focus:outline-none focus:ring-blue-400 cursor-text ${caretColorMap[mode]} ${fontMap[mode]}`}
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
+                onKeyDown={handleKeyDown}
                 placeholder="Let your fingers speak…"
                 ref={inputRef}
             />
