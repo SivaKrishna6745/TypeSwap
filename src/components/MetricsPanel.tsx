@@ -11,10 +11,10 @@ type MetricsPanelProps = {
 const MetricsPanel = ({ wpm, accuracy, errors, elapsedTime }: MetricsPanelProps) => {
     return (
         <div className="flex flex-wrap">
-            <MetricBox label={'🧠 Speed:'} value={wpm} color="green" />
-            <MetricBox label={'🎯 Accuracy:'} value={accuracy} color="blue" />
-            <MetricBox label={'❌ Number of errors:'} value={errors} color="red" />
-            <MetricBox label={'Elapsed Time:'} value={elapsedTime} color="gray" />
+            <MetricBox label={'🧠 Speed:'} value={wpm} />
+            <MetricBox label={'🎯 Accuracy:'} value={accuracy} />
+            <MetricBox label={'❌ Number of errors:'} value={errors} />
+            <MetricBox label={'⏱️ Elapsed Time:'} value={elapsedTime} />
         </div>
     );
 };

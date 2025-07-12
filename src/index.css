@@ -2,5 +2,18 @@
 
 :root {
     font-family: 'Poppins', sans-serif;
-    background-color: #053236;
+    background-color: #1e1b4b;
+}
+
+:root:has(.mode-quotes) {
+    background-color: #1c1a40;
+    color: #c2c6f0;
+}
+:root:has(.mode-paragraphs) {
+    background-color: #0f172a;
+    color: #bac8d9;
+}
+:root:has(.mode-codes) {
+    background-color: #500724;
+    color: #f0b4d6;
 }

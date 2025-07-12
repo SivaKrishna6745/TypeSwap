@@ -3,19 +3,14 @@ import React from 'react';
 type MetricBoxProps = {
     label: string;
     value: number;
-    color: 'red' | 'green' | 'blue' | 'gray';
 };
 
-const bgColorMap = {
-    red: 'bg-red-300',
-    green: 'bg-green-300',
-    blue: 'bg-blue-300',
-    gray: 'bg-gray-300',
-};
-
-const MetricBox = ({ label, value, color }: MetricBoxProps) => {
+const MetricBox = ({ label, value }: MetricBoxProps) => {
     return (
-        <div className={`${bgColorMap[color]} mx-4 p-4 rounded-lg text-xl`}>
+        <div
+            className="bg-white/10 backdrop-blur-sm border border-white/10
+ mx-4 p-4 rounded-lg text-xl"
+        >
             <p>{label}</p>
             <p>{value}</p>
         </div>
