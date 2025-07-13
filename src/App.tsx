@@ -37,8 +37,32 @@ function App() {
             <ModeSwitcher selectedMode={mode} onModeChange={handleModeChange} />
             <TextStream targetText={targetText} userInput={userInput} />
             <div className="flex justify-center items-center gap-2">
-                <input type="checkbox" id="strict" onChange={() => setStrictMode(!strictMode)} />
-                <label htmlFor="strict" title="No backspace. Every keystroke counts.">
+                <label htmlFor="strict" className="cursor-pointer">
+                    <div
+                        className={`relative h-5 w-10 bg-gray-400 rounded-full ${
+                            strictMode ? 'ring-2 ring-teal-500' : ''
+                        }`}
+                        role="switch"
+                        aria-checked={strictMode}
+                    >
+                        <div
+                            className={`absolute h-4 w-4 top-0.5 rounded-full transition-all duration-300 ease-in-out ${
+                                strictMode ? 'bg-gray-700 left-[calc(100%-1.25rem)] shadow-md' : 'bg-gray-600 left-1'
+                            }`}
+                        ></div>
+                    </div>
+                </label>
+                <input
+                    type="checkbox"
+                    id="strict"
+                    className="peer hidden"
+                    onChange={() => setStrictMode(!strictMode)}
+                />
+                <label
+                    htmlFor="strict"
+                    className="cursor-pointer text-lg"
+                    title="No backspace. Every keystroke counts."
+                >
                     🔒 Strict Mode (No Backspace)
                 </label>
             </div>
