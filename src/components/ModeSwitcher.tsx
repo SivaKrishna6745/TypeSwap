@@ -1,5 +1,3 @@
-import React from 'react';
-
 type Mode = 'quotes' | 'paragraphs' | 'codes';
 type ModeSwitcherProps = {
     selectedMode: Mode;

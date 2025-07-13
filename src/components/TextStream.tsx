@@ -1,11 +1,8 @@
-import React from 'react';
-
 type TextStreamProps = {
     targetText: string;
-    userInput: string;
 };
 
-const TextStream = ({ targetText, userInput }: TextStreamProps) => {
+const TextStream = ({ targetText }: TextStreamProps) => {
     const targetTextArray = targetText.split('');
 
     return (

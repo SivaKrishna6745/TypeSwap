@@ -8,7 +8,6 @@ type TypingInputProps = {
     mode: Mode;
     targetText: string;
     strict: boolean;
-    start: boolean;
     setStart: (value: boolean) => void;
 };
 
@@ -30,7 +29,7 @@ const fontMap: Record<Mode, string> = {
     codes: 'font-mono',
 };
 
-const TypingInput = ({ value, onChange, mode, targetText, strict, start, setStart }: TypingInputProps) => {
+const TypingInput = ({ value, onChange, mode, targetText, strict, setStart }: TypingInputProps) => {
     const inputRef = useRef<HTMLTextAreaElement>(null);
     const [bkspClicked, setBkspClicked] = useState<boolean>(false);
     useEffect(() => {
@@ -79,13 +78,7 @@ const TypingInput = ({ value, onChange, mode, targetText, strict, start, setStar
                 placeholder="Let your fingers speak…"
                 ref={inputRef}
             />
-            <FeedbackPanel
-                feedback={feedback}
-                fontStyle={fontMap[mode]}
-                mode={mode}
-                targetText={targetText}
-                value={value}
-            />
+            <FeedbackPanel feedback={feedback} fontStyle={fontMap[mode]} targetText={targetText} value={value} />
         </div>
     );
 };

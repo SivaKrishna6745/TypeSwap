@@ -18,7 +18,7 @@ function App() {
     const [startedTyping, setStartedTyping] = useState<boolean>(false);
     const [targetText, setTargetText] = useState(getRandomTextByMode(mode));
     const [userInput, setUserInput] = useState<string>('');
-    const { wpm, accuracy, errors, isFinished, elapsedTime, resetStats } = useTypingStats(targetText, userInput);
+    const { wpm, accuracy, errors, elapsedTime, resetStats } = useTypingStats(targetText, userInput);
     const handleRestart = () => {
         setUserInput('');
         resetStats();
@@ -36,7 +36,7 @@ function App() {
             <h1 className="text-5xl text-white">Type Swap</h1>
             <hr className="w-full border-white" />
             <ModeSwitcher selectedMode={mode} onModeChange={handleModeChange} />
-            <TextStream targetText={targetText} userInput={userInput} />
+            <TextStream targetText={targetText} />
             <div className="flex justify-center items-center gap-2">
                 <label htmlFor="strict" className="cursor-pointer" title="Once entered, no turning back...">
                     <div
@@ -70,7 +70,6 @@ function App() {
                 mode={mode}
                 targetText={targetText}
                 strict={strictMode}
-                start={startedTyping}
                 setStart={setStartedTyping}
             />
             <MetricsPanel wpm={wpm} accuracy={accuracy} errors={errors} elapsedTime={elapsedTime} />

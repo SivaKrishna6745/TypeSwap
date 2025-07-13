@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 type FeedbackItem = {
@@ -11,7 +10,6 @@ type FeedbackItem = {
 type FeedbackPanelProps = {
     feedback: Array<FeedbackItem>;
     fontStyle: string;
-    mode: 'quotes' | 'paragraphs' | 'codes';
     targetText: string;
     value: string;
 };
@@ -19,7 +17,7 @@ type FeedbackPanelProps = {
 const feedbackStyle =
     'text-lg bg-white/20 h-8 w-8 rounded-md flex justify-center items-center transition-all duration-200 ease-in-out';
 
-const FeedbackPanel = ({ feedback, fontStyle, mode, targetText, value }: FeedbackPanelProps) => {
+const FeedbackPanel = ({ feedback, fontStyle, targetText, value }: FeedbackPanelProps) => {
     return (
         <div className="flex flex-col items-center">
             <div className="text-2xl text-white my-2">

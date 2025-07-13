@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 const useTypingStats = (targetText: string, userInput: string) => {
     const totalTyped = userInput.length;

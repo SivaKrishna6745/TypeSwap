@@ -1,4 +1,3 @@
-import React from 'react';
 import MetricBox from './MetricBox';
 
 type MetricsPanelProps = {
