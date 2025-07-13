@@ -15,6 +15,7 @@ const getRandomTextByMode = (mode: 'quotes' | 'paragraphs' | 'codes') => {
 function App() {
     const [mode, setMode] = useState<'quotes' | 'paragraphs' | 'codes'>('quotes');
     const [strictMode, setStrictMode] = useState<boolean>(false);
+    const [startedTyping, setStartedTyping] = useState<boolean>(false);
     const [targetText, setTargetText] = useState(getRandomTextByMode(mode));
     const [userInput, setUserInput] = useState<string>('');
     const { wpm, accuracy, errors, isFinished, elapsedTime, resetStats } = useTypingStats(targetText, userInput);
@@ -37,11 +38,11 @@ function App() {
             <ModeSwitcher selectedMode={mode} onModeChange={handleModeChange} />
             <TextStream targetText={targetText} userInput={userInput} />
             <div className="flex justify-center items-center gap-2">
-                <label htmlFor="strict" className="cursor-pointer">
+                <label htmlFor="strict" className="cursor-pointer" title="Once entered, no turning back...">
                     <div
                         className={`relative h-5 w-10 bg-gray-400 rounded-full ${
                             strictMode ? 'ring-2 ring-teal-500' : ''
-                        }`}
+                        } ${strictMode && startedTyping ? 'opacity-50 cursor-not-allowed' : ''}`}
                         role="switch"
                         aria-checked={strictMode}
                     >
@@ -57,12 +58,9 @@ function App() {
                     id="strict"
                     className="peer hidden"
                     onChange={() => setStrictMode(!strictMode)}
+                    disabled={strictMode && startedTyping}
                 />
-                <label
-                    htmlFor="strict"
-                    className="cursor-pointer text-lg"
-                    title="No backspace. Every keystroke counts."
-                >
+                <label htmlFor="strict" className="cursor-pointer text-lg" title="Once entered, no turning back...">
                     🔒 Strict Mode (No Backspace)
                 </label>
             </div>
@@ -72,6 +70,8 @@ function App() {
                 mode={mode}
                 targetText={targetText}
                 strict={strictMode}
+                start={startedTyping}
+                setStart={setStartedTyping}
             />
             <MetricsPanel wpm={wpm} accuracy={accuracy} errors={errors} elapsedTime={elapsedTime} />
             {userInput === targetText && <RestartButton onClick={handleRestart} />}

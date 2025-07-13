@@ -17,7 +17,7 @@ type FeedbackPanelProps = {
 };
 
 const feedbackStyle =
-    'text-xl bg-white/20 h-10 w-10 rounded-md flex justify-center items-center transition-all duration-200 ease-in-out';
+    'text-lg bg-white/20 h-8 w-8 rounded-md flex justify-center items-center transition-all duration-200 ease-in-out';
 
 const FeedbackPanel = ({ feedback, fontStyle, mode, targetText, value }: FeedbackPanelProps) => {
     return (
@@ -30,7 +30,7 @@ const FeedbackPanel = ({ feedback, fontStyle, mode, targetText, value }: Feedbac
             <div className={`${fontStyle} mt-4 flex gap-2 flex-wrap w-[90%]`}>
                 {feedback.map((item: FeedbackItem) => {
                     return (
-                        <>
+                        <div key={`${item.idx}-${item.char}-${Date.now()}`}>
                             {item.isExtra ? (
                                 <span className={`text-gray-400 opacity-50 ${fontStyle} ${feedbackStyle}`}>
                                     {item.char}
@@ -39,7 +39,6 @@ const FeedbackPanel = ({ feedback, fontStyle, mode, targetText, value }: Feedbac
                                 <span className={`text-green-600 ${fontStyle} ${feedbackStyle}`}>{item.char}</span>
                             ) : (
                                 <motion.span
-                                    key={`${item.idx}-${item.char}-${Date.now()}`}
                                     initial={{ x: 0 }}
                                     animate={{ x: [0, -8, 8, -8, 0] }}
                                     transition={{ duration: 0.3 }}
@@ -48,7 +47,7 @@ const FeedbackPanel = ({ feedback, fontStyle, mode, targetText, value }: Feedbac
                                     {item?.char}
                                 </motion.span>
                             )}
-                        </>
+                        </div>
                     );
                 })}
             </div>

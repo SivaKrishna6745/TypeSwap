@@ -8,6 +8,8 @@ type TypingInputProps = {
     mode: Mode;
     targetText: string;
     strict: boolean;
+    start: boolean;
+    setStart: (value: boolean) => void;
 };
 
 const caretColorMap: Record<Mode, string> = {
@@ -28,7 +30,7 @@ const fontMap: Record<Mode, string> = {
     codes: 'font-mono',
 };
 
-const TypingInput = ({ value, onChange, mode, targetText, strict }: TypingInputProps) => {
+const TypingInput = ({ value, onChange, mode, targetText, strict, start, setStart }: TypingInputProps) => {
     const inputRef = useRef<HTMLTextAreaElement>(null);
     const [bkspClicked, setBkspClicked] = useState<boolean>(false);
     useEffect(() => {
@@ -45,6 +47,10 @@ const TypingInput = ({ value, onChange, mode, targetText, strict }: TypingInputP
             isExtra: i >= targetChars.length,
         });
     }
+    const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        onChange(e.target.value);
+        if (e.target.value !== '') setStart(true);
+    };
     const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
         if (e?.key === 'Backspace' && strict) {
             e.preventDefault();
@@ -68,7 +74,7 @@ const TypingInput = ({ value, onChange, mode, targetText, strict }: TypingInputP
                     caretColorMap[mode]
                 } ${fontMap[mode]} ${bkspClicked ? `ring-2 ${bkspRingColorMap[mode]}` : ''}`}
                 value={value}
-                onChange={(e) => onChange(e.target.value)}
+                onChange={handleChange}
                 onKeyDown={handleKeyDown}
                 placeholder="Let your fingers speak…"
                 ref={inputRef}
