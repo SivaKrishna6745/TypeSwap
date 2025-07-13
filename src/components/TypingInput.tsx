@@ -35,9 +35,9 @@ const TypingInput = ({ value, onChange, mode, targetText, strict, setStart }: Ty
     useEffect(() => {
         if (inputRef.current) inputRef.current?.focus();
     }, []);
-    let targetChars = targetText.split('');
-    let typedChars = value.split('');
-    let feedback = [];
+    const targetChars = targetText.split('');
+    const typedChars = value.split('');
+    const feedback = [];
     for (let i = 0; i < typedChars.length; i++) {
         feedback.push({
             char: typedChars[i],
